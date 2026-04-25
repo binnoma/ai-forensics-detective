@@ -1,0 +1,25 @@
+# --- AI Forensics Detective GitIgnore ---
+
+# Models (Extremely large files, do not upload to GitHub)
+models/
+*.bin
+*.pth
+*.pt
+*.safetensors
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Scripts (Contain tokens/secrets)
+*.bat
+*.cmd
+sh/
