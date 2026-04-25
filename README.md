@@ -1,42 +1,48 @@
-# 🕵️‍♂️ AI Forensics Detective
+# 🔬 المواصفات التقنية والمنهجية الجنائية للمشروع
 
-[**العربية - اضغط هنا لقراءة الوثائق بالعربي**](README_AR.md) | [**Technical Details (Arabic)**](PROJECT_DETAILS_AR.md)
+## 1. الهندسة المعمارية (Architecture Overview)
+يعتمد مشروع **المحقق الجنائي للذكاء الاصطناعي** على معمارية هجينة تجمع بين معالجة الصور التقليدية (Traditional Image Processing) وبين النماذج العصبية المتقدمة (State-of-the-art VLMs).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-orange)](https://huggingface.co/spaces)
+### أ. طبقة المعالجة الأولية (Preprocessing Layer)
+- **استخراج الـ EXIF**: يتم فحص "البصمة الزمنية والمكانية" للصورة. يتم البحث عن حقول محددة مثل `Software`, `Model`, `Make`. الصور المولدة بالذكاء الاصطناعي غالباً ما تفتقر لهذه البيانات أو تحتوي على بصمات لبرامج مثل `Adobe Firefly`.
+- **تحليل الهيكل**: يتم التحقق من سلامة تشفير الصورة (Encoding Integrity).
 
-**AI Forensics Detective** is a professional-grade digital investigation suite designed to identify AI-generated imagery and deepfakes. It uses the state-of-the-art **Qwen2-VL** vision-language model to perform deep-pixel analysis, looking for anatomical anomalies, lighting inconsistencies, and semantic artifacts.
+### ب. طبقة الاستدلال العصبي (Neural Inference Layer)
+- **نموذج Qwen2-VL-7B**: هو العقل المدبر. تم اختيار نسخة **Instruct** لقدرتها العالية على اتباع التعليمات المعقدة وكتابة تقارير تحليلية بدلاً من مجرد إعطاء رقم.
+- **Dynamic Resolution**: يدعم النموذج تحليل الصور بدقتها الأصلية، مما يسمح بكشف "التشوهات الدقيقة" (Micro-artifacts) التي تضيع في النماذج التي تصغر حجم الصورة.
 
 ---
 
-## ✨ Key Features
-- **Ultra-Premium UI**: Futuristic "Cyber-Forensics" interface with glassmorphism and neon accents.
-- **Mission Dashboard**: Real-time investigation logs with timestamped stage tracking.
-- **Deep Artifact Analysis**: Detects fused limbs, mismatched eye reflections, and inconsistent shadows.
-- **Metadata Extraction**: Automatically parses EXIF data to verify camera authenticity.
-- **100% Portable**: Stores models locally in the `/models/` folder for offline-ready deployment.
+## 2. المنهجية الجنائية المتبعة (Forensic Methodology)
+يتبع البرنامج بروتوكولاً جنائياً صارماً في التحليل (The Forensic Prompting Protocol):
 
-## 📸 Preview
-![UI Mockup](ui_mockup.png)
+### المرحلة الأولى: التدقيق التشريحي (Anatomical Audit)
+الذكاء الاصطناعي يواجه صعوبة في فهم "الترابط العضوي". يبحث البرنامج عن:
+- عدد الأصابع وتناسق مفاصل اليد.
+- تناظر الأذنين والعيون.
+- اتساق الأسنان داخل الفم.
 
-## 🚀 Quick Start (Windows)
-1. **Clone the project**:
-   ```bash
-   git clone https://github.com/your-username/AI-Forensics-Detective.git
-   ```
-2. **Run the Automated Launcher**:
-   - Double-click **`START_PROJECT.bat`**.
-   - The script will automatically set up your environment, move existing HF models, and launch the dashboard.
+### المرحلة الثانية: تحليل الإضاءة والفيزياء (Optical Physics Analysis)
+- يتم تتبع الظلال ومقارنتها بمصادر الضوء المفترضة في الصورة.
+- البحث عن "النزيف الدلالي" (Semantic Bleeding) حيث تتداخل كائنات غير مرتبطة ببعضها في الخلفية.
 
-## 🛠 Tech Stack
-- **Model Engine**: [Qwen/Qwen2-VL-7B-Instruct](https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct)
-- **Framework**: Hugging Face Transformers & Gradio
-- **Optimizations**: 4-bit BitsAndBytes Quantization (VRAM Efficient)
-- **Styling**: Custom CSS / Google Fonts (Outfit & JetBrains Mono)
+### المرحلة الثالثة: تحليل الأنسجة (Texture & Noise Analysis)
+- يبحث البرنامج عن "النعومة المفرطة" (Over-smoothing) التي تميز الصور المولدة، أو أنماط الضوضاء غير الطبيعية (Artificial Noise).
 
-## 📄 Documentation
-For a detailed guide on how to interpret forensic results and advanced configuration, see the [USER_GUIDE.md](USER_GUIDE.md).
+---
 
-## ⚖️ License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 3. تحسينات الأداء والضخامة (Scaling & Optimization)
+لضمان تشغيل هذا "الوحش التقني" على أجهزة المستخدمين، تم دمج تقنيات متقدمة:
+- **BitsAndBytes 4-bit**: تقليل استهلاك الذاكرة بنسبة 70% دون التأثير الملحوظ على الدقة.
+- **Torch Bfloat16**: استخدام دقة رياضية متوازنة تسرع العمليات الحسابية على المعالجات الحديثة.
+- **Asynchronous Streaming**: نظام بث النتائج اللحظي الذي يمنع تجميد الواجهة ويظهر ضخامة العمليات التي تتم في الخلفية.
+
+---
+
+## 4. خارطة الطريق المستقبلية (Future Roadmap)
+- [ ] دمج تحليل الترددات (Frequency Domain Analysis) لكشف التلاعب بالبيكسلات.
+- [ ] دعم تحليل الفيديو (Deepfake Video Detection).
+- [ ] إنشاء قاعدة بيانات محلية للصور المشبوهة لتعلم الأنماط الجديدة للذكاء الاصطناعي.
+
+---
+> **ملاحظة تقنية**: هذا المشروع يمثل قمة ما وصلت إليه تقنيات مفتوحة المصدر في مجال الأمن السيبراني والرؤية الحاسوبية، وهو مصمم ليكون قابلاً للتوسع والنمو مع تطور نماذج التزييف الرقمي.
